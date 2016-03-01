@@ -1,0 +1,111 @@
+.admin_nav
+{
+    float: left;
+    width: 200px;
+}
+    .admin_nav ul
+    {
+        list-style: none;
+    }
+        .admin_nav ul li
+        {
+            margin: 0px;
+        }
+        .admin_nav ul li:first-child b
+        {
+            border-radius: 0px 10px 0px 0px;
+        }
+        .admin_nav ul li:last-child a
+        {
+            border-radius: 0px 0px 10px 0px;
+        }
+            .admin_nav ul li a, .admin_nav ul li b, .adminMenuDefult_A, .adminMenuDefult li b
+            {
+                font-weight: bold;
+                text-decoration: none;
+                background-color: #000000;
+                color: #ffffff;
+                display: block;
+                padding: 5px 20px;
+                border-bottom: solid #ffffff 1px;
+                cursor: pointer;
+            }
+            .admin_nav ul li b
+            {
+                text-align: center;
+            }
+            .admin_nav ul li a:hover, .adminMenuDefult_A:hover
+            {
+                background-color: darkgray;
+                color: #ffffff;
+            }
+.menu, .adminMenuDefult
+{
+    list-style: none;
+}
+    .menu li, .adminMenuDefult li
+    {
+        float: left;
+    }
+        .menu li:last-child a
+        {
+            float: left;
+            border: none;
+        }
+        .menu li a
+        {
+            padding: 2px 5px;
+            border-right: 1px solid rgba(0,0,0,0.5) ;
+            display: block;
+            text-decoration: none;
+        }
+        .menu li:first-child, .adminMenuDefult li:first-child
+        {
+            display: none;
+        }
+        @media (max-width: 549px) {
+            .menu li, .adminMenuDefult li
+            {
+                display: none;
+                width: 100%;
+            }
+            .menu li a, .adminMenuDefult li
+            {
+                float: left;
+                border: none;
+                width: 100%;
+                text-align: center;
+            }
+            .menu li:first-child, .adminMenuDefult li:first-child
+            {
+                display: block;
+            }
+            .menu li i
+            {
+                padding: 0px 5px;
+                float: right;
+                cursor: pointer;
+            }
+        }
+
+.error
+{
+    color: red;
+}
+
+.success
+{
+    color: greenyellow;
+}
+.font_normal
+{
+    font-size: 100%;
+}
+.font_h1_setting
+{
+    font-size: 240%;
+}
+.font_normal_h_line
+{
+    font-size: 140%;
+}
