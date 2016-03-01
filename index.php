@@ -4,7 +4,6 @@
     // pre-create empty user session
     $user = new User();
     // make the page navigation
-
     $page = Navigate::to(Input::get('page'));
 ?>
 <!DOCTYPE html>
