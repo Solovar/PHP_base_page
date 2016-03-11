@@ -17,18 +17,18 @@ class Cookie
         return json_decode($_COOKIE[$name], true);
     }
     // set a JSON based Cookie
-    public static function putJSON($name, $value, $expiry)
+    public static function putJSON($name, $value, $expiry, $https = null, $domain = null, $httpOnly = false)
     {
-        if(setcookie($name, json_encode($value), time() + $expiry, '/'))
+        if(setcookie($name, json_encode($value), time() + $expiry, '/', $https = null, $domain = null, $httpOnly = false))
         {
             return true;
         }
         return false;
     }
     // set a Cookie
-    public static function put($name, $value, $expiry)
+    public static function put($name, $value, $expiry, $https = null, $domain = null, $httpOnly = false)
     {
-        if(setcookie($name, $value, time() + $expiry, '/'))
+        if(setcookie($name, $value, time() + $expiry, '/', $https, $domain, $httpOnly))
         {
             return true;
         }

@@ -5,6 +5,6 @@
         <li><a href="?page=pri_Image_Upload">Uploade Img</a></li>
         <li><a href="?page=pri_Update">Update</a></li>
         <li><a href="?page=p_Search">Search</a></li>
-        <li><a href="?page=pri_Rand_Img">rand Img</a></li>
+        <li><a href="?page=pri_Rand_Image">rand Img</a></li>
     </ul>
 </nav>

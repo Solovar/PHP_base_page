@@ -8,7 +8,7 @@ $GLOBALS['config'] = array(
 		'host' 		=> '127.0.0.1',
 		'username'	=> 'root',
 		'password'	=> 'zaq123',
-		'db'		=> 'serch_test'
+		'db'		=> 'php_base_page'
 	),
 	'remember'	=> array(
 		'cookie_name'	=> 'hash',
