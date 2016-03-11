@@ -43,6 +43,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <div class="container">
     <?php
+
         // get the flash and the menu
         require_once 'pages/template/nav.php';
         require_once 'pages/template/flash.php';
