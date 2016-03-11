@@ -99,7 +99,7 @@ class User
 
 			if($user)
 			{
-				if ($this->data()->password === Hash::make($password, $this->data()->salt))
+				if (Hash::checkPassword($password,$this->data()->password))
 				{
 					// if the entered password hashed and salted, matcher det i databasen, set the user to be logged in
 					Session::put($this->_sessionName, $this->data()->id);

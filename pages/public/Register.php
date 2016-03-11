@@ -45,14 +45,12 @@
 			{
 				// set a new user and make the salt and it's length
 				$user = new User();
-				$salt = Hash::salt(32);
 				// try to create the user array
 				try
 				{
 					$user->create(array(
 						'username'  => Input::get('username'),
-						'password'  => Hash::make(Input::get('password'), $salt),
-						'salt'		=> $salt,
+						'password'  => Hash::makeHashPass(Input::get('password'), 12),
 						'name'		=> Input::get('name'),
 						'joined'	=> date('Y-m-d H:i:s'),
 						'group'		=> 1

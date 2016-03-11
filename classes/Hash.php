@@ -6,6 +6,16 @@ class Hash
 	{
 		return hash('sha256', $string . $salt);
 	}
+	// new password hashing function
+	public static function makeHashPass($password, $cost)
+	{
+		return password_hash($password, PASSWORD_DEFAULT, ['cost' => $cost]);
+	}
+	// check password
+	public static function checkPassword($submittedPass, $storedInfo)
+	{
+		return password_verify($submittedPass, $storedInfo);
+	}
 	// make a salt out of gibrish
 	public static function salt($length)
 	{
