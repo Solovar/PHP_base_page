@@ -125,7 +125,7 @@ class User
 							$hash = $hashcheck->first()->hash;
 						}
 						// give the users a cookie with the hash
-						Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
+						Cookie::put($this->_cookieName, $hash, true, true);
 					}
 					return true;
 				}

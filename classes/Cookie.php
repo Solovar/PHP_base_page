@@ -17,7 +17,7 @@ class Cookie
         return json_decode($_COOKIE[$name], true);
     }
     // set a JSON based Cookie
-    public static function putJSON($name, $value, $expiry, $https = null, $domain = null, $httpOnly = false)
+    public static function putJSON($name, $value, $expiry, $httpOnly = false, $https = null, $domain = null)
     {
         if(setcookie($name, json_encode($value), Cookie::setDateTime($expiry), '/', $https = null, $domain = null, $httpOnly = false))
         {
@@ -26,7 +26,7 @@ class Cookie
         return false;
     }
     // set a Cookie
-    public static function put($name, $value, $expiry, $https = null, $domain = null, $httpOnly = false)
+    public static function put($name, $value, $expiry, $httpOnly = false, $https = null, $domain = null)
     {
         if(setcookie($name, $value, Cookie::setDateTime($expiry), '/', $https, $domain, $httpOnly))
         {
