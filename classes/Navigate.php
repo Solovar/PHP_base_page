@@ -17,7 +17,7 @@ class Navigate
 				'pages/' . $permish . $value[1] . '.php',	// create the path to the file
 				str_replace('_', ' ', $value[1])			// create the title
 			);
-
+			// counting / in the path structure
 			if(substr_count($content[0], '/') != 2)
 			{
 				return $content = array(
