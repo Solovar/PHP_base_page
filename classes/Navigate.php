@@ -7,9 +7,7 @@ class Navigate
 		if ($page) {
 			// if there is page information, turn it into an array
 			$value = explode('_', $page, 2);
-			// figur out what foulder the file is sepposed to go to
-			//$permish = ($value[0] == 'admin') ? /*(($user->isLoggedIn()) ?*/ Redirect::to(Config::get('server_path/admin_root')) /*: Redirect::to('404'))*/ :  (($value[0] == 'pri') ? 'privat/' : 'public/');
-
+			// figur out what foulder the file is sepposed be in
 			$permish = ($value[0] == 'admin') ? (($isLoggedIn) ? Redirect::to(Config::get('server_path/admin_root')) : 'public/') : (($value[0] == 'pri') ? 'privat/' : 'public/');
 
 			// make the content array
