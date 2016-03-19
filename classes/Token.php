@@ -4,7 +4,7 @@ class Token
 	// generates a md5 token
 	public static function generate()
 	{
-		return Session::put(Config::get('session/token_name'), md5(uniqid()));
+		return Session::put(Config::get('session/token_name'),bin2hex(openssl_random_pseudo_bytes(16)));
 	}
 	// check for a token
 	public static function check($token)
