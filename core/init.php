@@ -46,5 +46,6 @@ if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exsists(Conf
 	{
 		$user = new User($hashcheck->first()->user_id);
 		$user->login();
+		Cookie::put(Config::get('remember/cookie_name'), $hash, Config::get('remember/cookie_expiry'), true, true);
 	}
 }

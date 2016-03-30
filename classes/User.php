@@ -50,7 +50,7 @@ class User
 			$id = $this->data()->id;
 		}
 
-		if(!$this -> _db-> update( $this->_dbKey .'oop_users', $id, $fields))
+		if(!$this -> _db-> update( $this->_dbKey .'users', $id, $fields))
 		{
 			// if the user couldn't be updated, throw new Exception to tell the dev/users that something went wrong
 			throw new Exception('There was a problem updateing');
@@ -59,7 +59,7 @@ class User
 	// make user
 	public function create($fields = array())
 	{
-		if(!$this->_db->insert($this->_dbKey . 'oop_users', $fields))
+		if(!$this->_db->insert($this->_dbKey . 'users', $fields))
 		{
 			// try to inser a new user, and if something went worng, then tell the DEV/user that something went worng
 			throw new Exception('There was a problem creating an account');
@@ -72,7 +72,7 @@ class User
 		{
 			$field = (is_numeric($user)) ? 'id' : 'mail';
 			// if the user var numeric or not
-			$data = $this ->_db->get($this->_dbKey . 'oop_users', array($field, '=', $user));
+			$data = $this ->_db->get($this->_dbKey . 'users', array($field, '=', $user));
 			// search the DB for the users information
 			if($data ->count())
 			{
@@ -109,12 +109,12 @@ class User
 						// make a unik hash
 						$hash = Hash::unique();
 						// check if a hash for the users already exsists
-						$hashcheck = $this->_db->get($this->_dbKey . 'oop_users_sessions', array('user_id', '=', $this->data()->id));
+						$hashcheck = $this->_db->get($this->_dbKey . 'users_sessions', array('user_id', '=', $this->data()->id));
 
 						if (!$hashcheck->count())
 						{
 							// if no hash is found make one for the user
-							$this->_db->insert($this->_dbKey . 'oop_users_sessions', array(
+							$this->_db->insert($this->_dbKey . 'users_sessions', array(
 								'user_id' => $this->data()->id,
 								'hash' => $hash
 							));
@@ -125,7 +125,7 @@ class User
 							$hash = $hashcheck->first()->hash;
 						}
 						// give the users a cookie with the hash
-						Cookie::put($this->_cookieName, $hash, true, true);
+						Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry') , true, true);
 					}
 					return true;
 				}
@@ -137,7 +137,7 @@ class User
 	public function hasPermission($key)
 	{
 		// get the spesefic users group information
-		$group = $this -> _db->get($this->_dbKey . 'oop_groups', array('id', '=', $this->data()->group));
+		$group = $this -> _db->get($this->_dbKey . 'groups', array('id', '=', $this->data()->group));
 		if($group->count())
 		{
 			// if there is group information, json_decode it into an array
@@ -159,7 +159,7 @@ class User
 	// log the user out, by deleteing the session, the cookie and the remember hash
 	public function logout()
 	{
-		$this ->_db->delete($this->_dbKey . 'oop_users_sessions', array('user_id', '=', $this->data()->id));
+		$this ->_db->delete($this->_dbKey . 'users_sessions', array('user_id', '=', $this->data()->id));
 		Session::delete($this->_sessionName);
 		Cookie::delete($this->_cookieName);
 	}

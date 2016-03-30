@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struktur-dump for tabellen `oop_groups`
 --
 
-CREATE TABLE IF NOT EXISTS `oop_groups` (
+CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `g_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `g_permissions` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `oop_groups` (
 -- Data dump for tabellen `oop_groups`
 --
 
-INSERT INTO `oop_groups` (`id`, `g_name`, `g_permissions`) VALUES
+INSERT INTO `groups` (`id`, `g_name`, `g_permissions`) VALUES
 (1, 'Standart User', ''),
 (2, 'Premium', '{\r\n"premium": 1\r\n}'),
 (3, 'Administrator', '{\n"premium": 1\n"admin": 1\n}');
@@ -48,11 +48,10 @@ INSERT INTO `oop_groups` (`id`, `g_name`, `g_permissions`) VALUES
 -- Struktur-dump for tabellen `oop_users`
 --
 
-CREATE TABLE IF NOT EXISTS `oop_users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mail` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `salt` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `joined` datetime NOT NULL,
   `group` int(11) NOT NULL,
@@ -65,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `oop_users` (
 -- Struktur-dump for tabellen `oop_users_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `oop_users_sessions` (
+CREATE TABLE IF NOT EXISTS `users_sessions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `hash` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
