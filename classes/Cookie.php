@@ -42,6 +42,7 @@ class Cookie
     // set DateTime
     public static function setDateTime($value)
     {
-        return new DateTime($value);
+        $time = new DateTime($value);
+        return $time->getTimestamp();
     }
 }
