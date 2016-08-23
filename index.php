@@ -4,7 +4,7 @@
     // pre-create empty user session
     $user = new User();
     // make the page navigation
-    $page = Navigate::to(Input::get('page'), $user->isLoggedIn());
+    $page = new Navigate();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title> - <?php echo $page[1] ?></title>
+    <title> - <?php echo $page->title() ?></title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -48,9 +48,9 @@
         require_once 'pages/template/nav.php';
         require_once 'pages/template/flash.php';
         // if the page file exsists show it, if not show 404 error
-        if(file_exists($page[0]))
+        if(file_exists($page->location()))
         {
-            require_once $page[0];
+            require_once $page->location();
         }
         else
         {

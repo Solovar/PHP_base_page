@@ -37,7 +37,7 @@ class Cookie
     // delete a Cookie
     public static function delete($name)
     {
-        self::put($name, '', time() -1);
+        self::put($name, '', '-1 Hour');
     }
     // set DateTime
     public static function setDateTime($value)
